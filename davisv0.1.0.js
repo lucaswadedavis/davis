@@ -89,7 +89,6 @@ darwin:function(mutation,ancestry)
 	},
 
 style:function(selector,values){
-//requires jQuery
 		if (!jQuery){return false};
 		if ($("head style#dynamic").get().length==0){
 			$("head").append("<style id='dynamic'></style>");
@@ -108,6 +107,7 @@ style:function(selector,values){
 grid:function(xSteps,ySteps,bounds){
 	var grid=[];
 	var b=bounds;
+	console.log(b);
 	var xInterval=(bounds.right-bounds.left)/xSteps;
 	var yInterval=(bounds.bottom-bounds.top)/ySteps;
 	for (var i=0;i<xSteps;i++){
@@ -125,7 +125,6 @@ grid:function(xSteps,ySteps,bounds){
 	},
 
 gridLegend:function(grid,context){
-//requires Raphael
 	grid.legend=[];
 	for (var i=0;i<grid.length;i++){
 		for (var j=0;j<grid[i].length;j++){
@@ -137,7 +136,6 @@ gridLegend:function(grid,context){
 	}
 
 	grid.show=function(ms){
-//requires Raphael
 		var ms=ms || 3000;
 		for (var i=0;i<this.legend.length;i++){
 			this.legend[i].animate({"opacity":1},(ms/10));
@@ -174,9 +172,6 @@ table:function(array,bounds,context){
 	for (key in table[0]){xStep++;}
 	var yStep=table.length+1;
 	var grid=davis.grid(xStep,yStep,b);
-	console.log(c);
-	console.log(b);
-	console.log(grid);
 
 	var x=0;
 	for (var key in table[x]){
