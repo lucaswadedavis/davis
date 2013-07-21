@@ -89,6 +89,7 @@ darwin:function(mutation,ancestry)
 	},
 
 style:function(selector,values){
+//requires jQuery
 		if (!jQuery){return false};
 		if ($("head style#dynamic").get().length==0){
 			$("head").append("<style id='dynamic'></style>");
@@ -124,6 +125,7 @@ grid:function(xSteps,ySteps,bounds){
 	},
 
 gridLegend:function(grid,context){
+//requires Raphael
 	grid.legend=[];
 	for (var i=0;i<grid.length;i++){
 		for (var j=0;j<grid[i].length;j++){
@@ -135,6 +137,7 @@ gridLegend:function(grid,context){
 	}
 
 	grid.show=function(ms){
+//requires Raphael
 		var ms=ms || 3000;
 		for (var i=0;i<this.legend.length;i++){
 			this.legend[i].animate({"opacity":1},(ms/10));
